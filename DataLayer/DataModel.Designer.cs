@@ -80,6 +80,54 @@ namespace DataLayer
             }
         }
         private ObjectSet<Recipe> _Recipes;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Ingredient> Ingredients
+        {
+            get
+            {
+                if ((_Ingredients == null))
+                {
+                    _Ingredients = base.CreateObjectSet<Ingredient>("Ingredients");
+                }
+                return _Ingredients;
+            }
+        }
+        private ObjectSet<Ingredient> _Ingredients;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<IngredientList> IngredientLists
+        {
+            get
+            {
+                if ((_IngredientLists == null))
+                {
+                    _IngredientLists = base.CreateObjectSet<IngredientList>("IngredientLists");
+                }
+                return _IngredientLists;
+            }
+        }
+        private ObjectSet<IngredientList> _IngredientLists;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Measurement> Measurements
+        {
+            get
+            {
+                if ((_Measurements == null))
+                {
+                    _Measurements = base.CreateObjectSet<Measurement>("Measurements");
+                }
+                return _Measurements;
+            }
+        }
+        private ObjectSet<Measurement> _Measurements;
 
         #endregion
 
@@ -92,6 +140,30 @@ namespace DataLayer
         {
             base.AddObject("Recipes", recipe);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Ingredients EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToIngredients(Ingredient ingredient)
+        {
+            base.AddObject("Ingredients", ingredient);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the IngredientLists EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToIngredientLists(IngredientList ingredientList)
+        {
+            base.AddObject("IngredientLists", ingredientList);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Measurements EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToMeasurements(Measurement measurement)
+        {
+            base.AddObject("Measurements", measurement);
+        }
 
         #endregion
 
@@ -100,6 +172,304 @@ namespace DataLayer
     #endregion
 
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="db505e4eb8d47b40b7a6d7a05a001ba2a9Model", Name="Ingredient")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Ingredient : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Ingredient object.
+        /// </summary>
+        /// <param name="ingredientId">Initial value of the IngredientId property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        public static Ingredient CreateIngredient(global::System.Int32 ingredientId, global::System.String name)
+        {
+            Ingredient ingredient = new Ingredient();
+            ingredient.IngredientId = ingredientId;
+            ingredient.Name = name;
+            return ingredient;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IngredientId
+        {
+            get
+            {
+                return _IngredientId;
+            }
+            set
+            {
+                if (_IngredientId != value)
+                {
+                    OnIngredientIdChanging(value);
+                    ReportPropertyChanging("IngredientId");
+                    _IngredientId = StructuralObject.SetValidValue(value, "IngredientId");
+                    ReportPropertyChanged("IngredientId");
+                    OnIngredientIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _IngredientId;
+        partial void OnIngredientIdChanging(global::System.Int32 value);
+        partial void OnIngredientIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false, "Name");
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="db505e4eb8d47b40b7a6d7a05a001ba2a9Model", Name="IngredientList")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class IngredientList : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new IngredientList object.
+        /// </summary>
+        /// <param name="ingredientListId">Initial value of the IngredientListId property.</param>
+        /// <param name="ingredientId">Initial value of the IngredientId property.</param>
+        /// <param name="amount">Initial value of the Amount property.</param>
+        /// <param name="measurementId">Initial value of the MeasurementId property.</param>
+        public static IngredientList CreateIngredientList(global::System.Int32 ingredientListId, global::System.Int32 ingredientId, global::System.Int32 amount, global::System.Int32 measurementId)
+        {
+            IngredientList ingredientList = new IngredientList();
+            ingredientList.IngredientListId = ingredientListId;
+            ingredientList.IngredientId = ingredientId;
+            ingredientList.Amount = amount;
+            ingredientList.MeasurementId = measurementId;
+            return ingredientList;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IngredientListId
+        {
+            get
+            {
+                return _IngredientListId;
+            }
+            set
+            {
+                if (_IngredientListId != value)
+                {
+                    OnIngredientListIdChanging(value);
+                    ReportPropertyChanging("IngredientListId");
+                    _IngredientListId = StructuralObject.SetValidValue(value, "IngredientListId");
+                    ReportPropertyChanged("IngredientListId");
+                    OnIngredientListIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _IngredientListId;
+        partial void OnIngredientListIdChanging(global::System.Int32 value);
+        partial void OnIngredientListIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IngredientId
+        {
+            get
+            {
+                return _IngredientId;
+            }
+            set
+            {
+                OnIngredientIdChanging(value);
+                ReportPropertyChanging("IngredientId");
+                _IngredientId = StructuralObject.SetValidValue(value, "IngredientId");
+                ReportPropertyChanged("IngredientId");
+                OnIngredientIdChanged();
+            }
+        }
+        private global::System.Int32 _IngredientId;
+        partial void OnIngredientIdChanging(global::System.Int32 value);
+        partial void OnIngredientIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Amount
+        {
+            get
+            {
+                return _Amount;
+            }
+            set
+            {
+                OnAmountChanging(value);
+                ReportPropertyChanging("Amount");
+                _Amount = StructuralObject.SetValidValue(value, "Amount");
+                ReportPropertyChanged("Amount");
+                OnAmountChanged();
+            }
+        }
+        private global::System.Int32 _Amount;
+        partial void OnAmountChanging(global::System.Int32 value);
+        partial void OnAmountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 MeasurementId
+        {
+            get
+            {
+                return _MeasurementId;
+            }
+            set
+            {
+                OnMeasurementIdChanging(value);
+                ReportPropertyChanging("MeasurementId");
+                _MeasurementId = StructuralObject.SetValidValue(value, "MeasurementId");
+                ReportPropertyChanged("MeasurementId");
+                OnMeasurementIdChanged();
+            }
+        }
+        private global::System.Int32 _MeasurementId;
+        partial void OnMeasurementIdChanging(global::System.Int32 value);
+        partial void OnMeasurementIdChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="db505e4eb8d47b40b7a6d7a05a001ba2a9Model", Name="Measurement")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Measurement : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Measurement object.
+        /// </summary>
+        /// <param name="measurementId">Initial value of the MeasurementId property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        public static Measurement CreateMeasurement(global::System.Int32 measurementId, global::System.String name)
+        {
+            Measurement measurement = new Measurement();
+            measurement.MeasurementId = measurementId;
+            measurement.Name = name;
+            return measurement;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 MeasurementId
+        {
+            get
+            {
+                return _MeasurementId;
+            }
+            set
+            {
+                if (_MeasurementId != value)
+                {
+                    OnMeasurementIdChanging(value);
+                    ReportPropertyChanging("MeasurementId");
+                    _MeasurementId = StructuralObject.SetValidValue(value, "MeasurementId");
+                    ReportPropertyChanged("MeasurementId");
+                    OnMeasurementIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _MeasurementId;
+        partial void OnMeasurementIdChanging(global::System.Int32 value);
+        partial void OnMeasurementIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false, "Name");
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+
+        #endregion
+
+    }
     
     /// <summary>
     /// No Metadata Documentation available.

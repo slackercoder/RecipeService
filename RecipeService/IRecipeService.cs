@@ -14,6 +14,15 @@ namespace RecipeService
     {
         [OperationContract]
         RecipeResult GetRecipes();
+
+        [OperationContract]
+        RecipeResult GetRecipeById(int id);
+
+        [OperationContract]
+        RecipeResult SearchForRecipeByName(String name);
+
+        [OperationContract]
+        RecipeResult AddRecipe(); //Needs to be updated.
     }
 
 }

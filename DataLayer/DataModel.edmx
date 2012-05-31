@@ -6,8 +6,34 @@
     <edmx:StorageModels>
     <Schema Namespace="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="db505e4eb8d47b40b7a6d7a05a001ba2a9ModelStoreContainer">
+          <EntitySet Name="Ingredient" EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Store.Ingredient" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="IngredientList" EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Store.IngredientList" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Measurement" EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Store.Measurement" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Recipe" EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Store.Recipe" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
+        <EntityType Name="Ingredient">
+          <Key>
+            <PropertyRef Name="IngredientId" />
+          </Key>
+          <Property Name="IngredientId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="IngredientList">
+          <Key>
+            <PropertyRef Name="IngredientListId" />
+          </Key>
+          <Property Name="IngredientListId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IngredientId" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="MeasurementId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Measurement">
+          <Key>
+            <PropertyRef Name="MeasurementId" />
+          </Key>
+          <Property Name="MeasurementId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Recipe">
           <Key>
             <PropertyRef Name="RecipeId" />
@@ -21,6 +47,9 @@
       <Schema Namespace="db505e4eb8d47b40b7a6d7a05a001ba2a9Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="db505e4eb8d47b40b7a6d7a05a001ba2a9Entities" p1:LazyLoadingEnabled="true">
           <EntitySet Name="Recipes" EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Recipe" />
+          <EntitySet Name="Ingredients" EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Ingredient" />
+          <EntitySet Name="IngredientLists" EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.IngredientList" />
+          <EntitySet Name="Measurements" EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Measurement" />
         </EntityContainer>
         <EntityType Name="Recipe">
           <Key>
@@ -28,6 +57,29 @@
           </Key>
           <Property Name="RecipeId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Ingredient">
+          <Key>
+            <PropertyRef Name="IngredientId" />
+          </Key>
+          <Property Type="Int32" Name="IngredientId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="IngredientList">
+          <Key>
+            <PropertyRef Name="IngredientListId" />
+          </Key>
+          <Property Type="Int32" Name="IngredientListId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IngredientId" Nullable="false" />
+          <Property Type="Int32" Name="Amount" Nullable="false" />
+          <Property Type="Int32" Name="MeasurementId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Measurement">
+          <Key>
+            <PropertyRef Name="MeasurementId" />
+          </Key>
+          <Property Type="Int32" Name="MeasurementId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -40,6 +92,32 @@
               <MappingFragment StoreEntitySet="Recipe">
                 <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ingredients">
+            <EntityTypeMapping TypeName="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Ingredient">
+              <MappingFragment StoreEntitySet="Ingredient">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IngredientLists">
+            <EntityTypeMapping TypeName="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.IngredientList">
+              <MappingFragment StoreEntitySet="IngredientList">
+                <ScalarProperty Name="MeasurementId" ColumnName="MeasurementId" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
+                <ScalarProperty Name="IngredientListId" ColumnName="IngredientListId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Measurements">
+            <EntityTypeMapping TypeName="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Measurement">
+              <MappingFragment StoreEntitySet="Measurement">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MeasurementId" ColumnName="MeasurementId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

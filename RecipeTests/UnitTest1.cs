@@ -34,8 +34,58 @@ namespace RecipeTests
 
                 Assert.IsTrue(ret.RecipeNames.Count > 0);
             }
+        }
 
+        [TestMethod]
+        public void TestGetRecipeById_Valid()
+        {
+            RecipeResult ret = new RecipeResult();
+            using (var factory = serviceManager.GetChannelFactory())
+            {
+                IRecipeService client = factory.CreateChannel();
+                ret = client.GetRecipeById(1);
 
+                Assert.IsTrue(ret.RecipeNames.Count > 0);
+            }
+        }
+
+        [TestMethod]
+        public void TestGetRecipeById_NotValid()
+        {
+            RecipeResult ret = new RecipeResult();
+            using (var factory = serviceManager.GetChannelFactory())
+            {
+                IRecipeService client = factory.CreateChannel();
+                ret = client.GetRecipeById(92837);
+
+                Assert.IsFalse(ret.RecipeNames.Count > 0);
+            }
+        }
+
+        [TestMethod]
+        public void TestGetRecipeByName_Valid()
+        {
+            RecipeResult ret = new RecipeResult();
+            using (var factory = serviceManager.GetChannelFactory())
+            {
+                IRecipeService client = factory.CreateChannel();
+                ret = client.SearchForRecipeByName("Chocolate");
+
+                Assert.IsTrue(ret.RecipeNames.Count > 0);
+            }
+        }
+
+        [TestMethod]
+        public void TestGetRecipeByName_NotValid()
+        {
+            RecipeResult ret = new RecipeResult();
+            using (var factory = serviceManager.GetChannelFactory())
+            {
+                IRecipeService client = factory.CreateChannel();
+                ret = client.SearchForRecipeByName("Nothing");
+
+                Assert.IsFalse(ret.RecipeNames.Count > 0);
+            }
         }
     }
 }
