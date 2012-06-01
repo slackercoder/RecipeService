@@ -235,7 +235,7 @@ namespace DataLayer
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -254,7 +254,7 @@ namespace DataLayer
                 {
                     OnDirectionsIdChanging(value);
                     ReportPropertyChanging("DirectionsId");
-                    _DirectionsId = StructuralObject.SetValidValue(value, "DirectionsId");
+                    _DirectionsId = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("DirectionsId");
                     OnDirectionsIdChanged();
                 }
@@ -279,7 +279,7 @@ namespace DataLayer
             {
                 OnRecipeIdChanging(value);
                 ReportPropertyChanging("RecipeId");
-                _RecipeId = StructuralObject.SetValidValue(value, "RecipeId");
+                _RecipeId = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("RecipeId");
                 OnRecipeIdChanged();
             }
@@ -303,7 +303,7 @@ namespace DataLayer
             {
                 OnStepNumberChanging(value);
                 ReportPropertyChanging("StepNumber");
-                _StepNumber = StructuralObject.SetValidValue(value, "StepNumber");
+                _StepNumber = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("StepNumber");
                 OnStepNumberChanged();
             }
@@ -327,7 +327,7 @@ namespace DataLayer
             {
                 OnTextChanging(value);
                 ReportPropertyChanging("Text");
-                _Text = StructuralObject.SetValidValue(value, false, "Text");
+                _Text = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Text");
                 OnTextChanged();
             }
@@ -338,6 +338,7 @@ namespace DataLayer
 
         #endregion
 
+    
         #region Navigation Properties
     
         /// <summary>
@@ -407,7 +408,7 @@ namespace DataLayer
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -426,7 +427,7 @@ namespace DataLayer
                 {
                     OnIngredientIdChanging(value);
                     ReportPropertyChanging("IngredientId");
-                    _IngredientId = StructuralObject.SetValidValue(value, "IngredientId");
+                    _IngredientId = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("IngredientId");
                     OnIngredientIdChanged();
                 }
@@ -451,7 +452,7 @@ namespace DataLayer
             {
                 OnNameChanging(value);
                 ReportPropertyChanging("Name");
-                _Name = StructuralObject.SetValidValue(value, false, "Name");
+                _Name = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Name");
                 OnNameChanged();
             }
@@ -462,6 +463,7 @@ namespace DataLayer
 
         #endregion
 
+    
         #region Navigation Properties
     
         /// <summary>
@@ -521,7 +523,7 @@ namespace DataLayer
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -540,7 +542,7 @@ namespace DataLayer
                 {
                     OnIngredientListIdChanging(value);
                     ReportPropertyChanging("IngredientListId");
-                    _IngredientListId = StructuralObject.SetValidValue(value, "IngredientListId");
+                    _IngredientListId = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("IngredientListId");
                     OnIngredientListIdChanged();
                 }
@@ -565,7 +567,7 @@ namespace DataLayer
             {
                 OnIngredientIdChanging(value);
                 ReportPropertyChanging("IngredientId");
-                _IngredientId = StructuralObject.SetValidValue(value, "IngredientId");
+                _IngredientId = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("IngredientId");
                 OnIngredientIdChanged();
             }
@@ -589,7 +591,7 @@ namespace DataLayer
             {
                 OnAmountChanging(value);
                 ReportPropertyChanging("Amount");
-                _Amount = StructuralObject.SetValidValue(value, "Amount");
+                _Amount = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Amount");
                 OnAmountChanged();
             }
@@ -613,7 +615,7 @@ namespace DataLayer
             {
                 OnMeasurementIdChanging(value);
                 ReportPropertyChanging("MeasurementId");
-                _MeasurementId = StructuralObject.SetValidValue(value, "MeasurementId");
+                _MeasurementId = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("MeasurementId");
                 OnMeasurementIdChanged();
             }
@@ -637,7 +639,7 @@ namespace DataLayer
             {
                 OnRecipeIdChanging(value);
                 ReportPropertyChanging("RecipeId");
-                _RecipeId = StructuralObject.SetValidValue(value, "RecipeId");
+                _RecipeId = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("RecipeId");
                 OnRecipeIdChanged();
             }
@@ -648,6 +650,7 @@ namespace DataLayer
 
         #endregion
 
+    
         #region Navigation Properties
     
         /// <summary>
@@ -793,7 +796,7 @@ namespace DataLayer
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -812,7 +815,7 @@ namespace DataLayer
                 {
                     OnMeasurementIdChanging(value);
                     ReportPropertyChanging("MeasurementId");
-                    _MeasurementId = StructuralObject.SetValidValue(value, "MeasurementId");
+                    _MeasurementId = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("MeasurementId");
                     OnMeasurementIdChanged();
                 }
@@ -837,7 +840,7 @@ namespace DataLayer
             {
                 OnNameChanging(value);
                 ReportPropertyChanging("Name");
-                _Name = StructuralObject.SetValidValue(value, false, "Name");
+                _Name = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Name");
                 OnNameChanged();
             }
@@ -848,6 +851,7 @@ namespace DataLayer
 
         #endregion
 
+    
         #region Navigation Properties
     
         /// <summary>
@@ -901,7 +905,7 @@ namespace DataLayer
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -920,7 +924,7 @@ namespace DataLayer
                 {
                     OnRecipeIdChanging(value);
                     ReportPropertyChanging("RecipeId");
-                    _RecipeId = StructuralObject.SetValidValue(value, "RecipeId");
+                    _RecipeId = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("RecipeId");
                     OnRecipeIdChanged();
                 }
@@ -945,7 +949,7 @@ namespace DataLayer
             {
                 OnNameChanging(value);
                 ReportPropertyChanging("Name");
-                _Name = StructuralObject.SetValidValue(value, false, "Name");
+                _Name = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Name");
                 OnNameChanged();
             }
@@ -956,6 +960,7 @@ namespace DataLayer
 
         #endregion
 
+    
         #region Navigation Properties
     
         /// <summary>
@@ -1008,4 +1013,5 @@ namespace DataLayer
 
     #endregion
 
+    
 }

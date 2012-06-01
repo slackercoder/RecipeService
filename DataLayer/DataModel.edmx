@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="db505e4eb8d47b40b7a6d7a05a001ba2a9ModelStoreContainer">
-          <EntitySet Name="Directions" EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Store.Directions" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Ingredient" EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Store.Ingredient" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="IngredientList" EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Store.IngredientList" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Measurement" EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Store.Measurement" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Recipe" EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Store.Recipe" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Directions" EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Store.Directions" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Ingredient" EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Store.Ingredient" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="IngredientList" EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Store.IngredientList" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Measurement" EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Store.Measurement" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Recipe" EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Store.Recipe" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
           <AssociationSet Name="FK_Directions_Recipe" Association="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Store.FK_Directions_Recipe">
             <End Role="Recipe" EntitySet="Recipe" />
             <End Role="Directions" EntitySet="Directions" />
@@ -119,7 +119,7 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="db505e4eb8d47b40b7a6d7a05a001ba2a9Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="db505e4eb8d47b40b7a6d7a05a001ba2a9Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
         <EntityContainer Name="db505e4eb8d47b40b7a6d7a05a001ba2a9Entities" p1:LazyLoadingEnabled="true">
           <EntitySet Name="Ingredients" EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Ingredient" />
           <EntitySet Name="IngredientLists" EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.IngredientList" />
@@ -221,7 +221,7 @@
           <Key>
             <PropertyRef Name="DirectionsId" />
           </Key>
-          <Property Type="Int32" Name="DirectionsId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="DirectionsId" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Type="Int32" Name="RecipeId" Nullable="false" />
           <Property Type="Int32" Name="StepNumber" Nullable="false" />
           <Property Type="String" Name="Text" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
@@ -243,7 +243,7 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="db505e4eb8d47b40b7a6d7a05a001ba2a9ModelStoreContainer" CdmEntityContainer="db505e4eb8d47b40b7a6d7a05a001ba2a9Entities">
           <EntitySetMapping Name="Ingredients">
             <EntityTypeMapping TypeName="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Ingredient">
@@ -295,7 +295,7 @@
     </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <Connection>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
@@ -309,6 +309,6 @@
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams></Diagrams>
+    <Diagrams />
   </Designer>
 </edmx:Edmx>
