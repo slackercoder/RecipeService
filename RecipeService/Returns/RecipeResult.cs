@@ -9,5 +9,7 @@ namespace RecipeService
     public class RecipeResult
     {
         public List<Recipe> RecipeNames { get; set; }
+        public List<IngredientList> Ingredients { get; set; }
+        public List<Direction> Directions { get; set; }
     }
 }

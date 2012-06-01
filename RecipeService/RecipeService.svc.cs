@@ -65,5 +65,42 @@ namespace RecipeService
 
             return ret;
         }
+
+        public RecipeResult GetIngredientsByRecipeId(int id)
+        {
+            RecipeResult ret = new RecipeResult();
+
+            try
+            {
+                using (db505e4eb8d47b40b7a6d7a05a001ba2a9Entities data = new db505e4eb8d47b40b7a6d7a05a001ba2a9Entities())
+                {
+                    ret.Ingredients = data.IngredientLists.Where(o => o.RecipeId == id).ToList();
+                }
+            }
+            catch (Exception e) 
+            { 
+            }
+
+            return ret;
+        }
+
+        public RecipeResult GetDirectionsByRecipeId(int id)
+        {
+            RecipeResult ret = new RecipeResult();
+
+            try
+            {
+                using (db505e4eb8d47b40b7a6d7a05a001ba2a9Entities data = new db505e4eb8d47b40b7a6d7a05a001ba2a9Entities())
+                {
+                    ret.Directions = data.Directions.Where(o => o.RecipeId == id).ToList();
+                }
+            }
+            catch (Exception e)
+            {
+            }
+
+            return ret;
+        }
+
     }
 }

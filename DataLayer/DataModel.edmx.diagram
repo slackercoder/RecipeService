@@ -4,11 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9066cbbd5040499d971698e9ab07ca18" Name="Diagram1">
-        <EntityTypeShape EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Recipe" Width="1.5" PointX="0.75" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Ingredient" Width="1.5" PointX="3.25" PointY="0.5" />
-        <EntityTypeShape EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.IngredientList" Width="1.5" PointX="3.125" PointY="2.625" />
-        <EntityTypeShape EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Measurement" Width="1.5" PointX="5.625" PointY="0.5" />
+      <Diagram DiagramId="3651b36f700b4133bfcea290c789de09" Name="Diagram1">
+        <EntityTypeShape EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Ingredient" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.IngredientList" Width="1.5" PointX="4.625" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Measurement" Width="1.5" PointX="4.625" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Recipe" Width="1.5" PointX="8" PointY="0.625" IsExpanded="true" />
+        <AssociationConnector Association="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Ingredient" ManuallyRouted="false" />
+        <AssociationConnector Association="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Measurement" ManuallyRouted="false" />
+        <AssociationConnector Association="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Recipe" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Direction" Width="1.5" PointX="11.125" PointY="3.875" />
+        <AssociationConnector Association="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_Directions_Recipe" ManuallyRouted="false" >
+        </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

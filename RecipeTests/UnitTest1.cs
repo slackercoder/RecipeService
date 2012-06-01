@@ -87,5 +87,58 @@ namespace RecipeTests
                 Assert.IsFalse(ret.RecipeNames.Count > 0);
             }
         }
+
+        [TestMethod]
+        public void TestGetIngredientsByRecipeId_Valid()
+        {
+            RecipeResult ret = new RecipeResult();
+            using (var factory = serviceManager.GetChannelFactory())
+            {
+                IRecipeService client = factory.CreateChannel();
+                ret = client.GetIngredientsByRecipeId(1);
+
+                Assert.IsTrue(ret.RecipeNames.Count > 0);
+            }
+        }
+
+        [TestMethod]
+        public void TestGetIngredientsByRecipeId_NotValid()
+        {
+            RecipeResult ret = new RecipeResult();
+            using (var factory = serviceManager.GetChannelFactory())
+            {
+                IRecipeService client = factory.CreateChannel();
+                ret = client.GetIngredientsByRecipeId(999928);
+
+                Assert.IsFalse(ret.RecipeNames.Count > 0);
+            }
+        }
+
+        [TestMethod]
+        public void TestGetDirectionsByRecipeId_Valid()
+        {
+            RecipeResult ret = new RecipeResult();
+            using (var factory = serviceManager.GetChannelFactory())
+            {
+                IRecipeService client = factory.CreateChannel();
+                ret = client.GetDirectionsByRecipeId(1);
+
+                Assert.IsTrue(ret.RecipeNames.Count > 0);
+            }
+        }
+
+        [TestMethod]
+        public void TestGetDirectionsByRecipeId_NotValid()
+        {
+            RecipeResult ret = new RecipeResult();
+            using (var factory = serviceManager.GetChannelFactory())
+            {
+                IRecipeService client = factory.CreateChannel();
+                ret = client.GetDirectionsByRecipeId(9928378);
+
+                Assert.IsFalse(ret.RecipeNames.Count > 0);
+            }
+        }
+
     }
 }

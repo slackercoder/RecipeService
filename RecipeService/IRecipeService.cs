@@ -8,7 +8,6 @@ using System.Text;
 
 namespace RecipeService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
     public interface IRecipeService
     {
@@ -22,7 +21,10 @@ namespace RecipeService
         RecipeResult SearchForRecipeByName(String name);
 
         [OperationContract]
-        RecipeResult AddRecipe(); //Needs to be updated.
+        RecipeResult GetIngredientsByRecipeId(int id);
+
+        [OperationContract]
+        RecipeResult GetDirectionsByRecipeId(int id);
     }
 
 }

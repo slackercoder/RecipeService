@@ -17,6 +17,15 @@ using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
+#region EDM Relationship Metadata
+
+[assembly: EdmRelationshipAttribute("db505e4eb8d47b40b7a6d7a05a001ba2a9Model", "FK_IngredientList_Ingredient", "Ingredient", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataLayer.Ingredient), "IngredientList", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataLayer.IngredientList), true)]
+[assembly: EdmRelationshipAttribute("db505e4eb8d47b40b7a6d7a05a001ba2a9Model", "FK_IngredientList_Measurement", "Measurement", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataLayer.Measurement), "IngredientList", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataLayer.IngredientList), true)]
+[assembly: EdmRelationshipAttribute("db505e4eb8d47b40b7a6d7a05a001ba2a9Model", "FK_IngredientList_Recipe", "Recipe", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataLayer.Recipe), "IngredientList", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataLayer.IngredientList), true)]
+[assembly: EdmRelationshipAttribute("db505e4eb8d47b40b7a6d7a05a001ba2a9Model", "FK_Directions_Recipe", "Recipe", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataLayer.Recipe), "Direction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataLayer.Direction), true)]
+
+#endregion
+
 namespace DataLayer
 {
     #region Contexts
@@ -68,22 +77,6 @@ namespace DataLayer
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Recipe> Recipes
-        {
-            get
-            {
-                if ((_Recipes == null))
-                {
-                    _Recipes = base.CreateObjectSet<Recipe>("Recipes");
-                }
-                return _Recipes;
-            }
-        }
-        private ObjectSet<Recipe> _Recipes;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Ingredient> Ingredients
         {
             get
@@ -128,18 +121,42 @@ namespace DataLayer
             }
         }
         private ObjectSet<Measurement> _Measurements;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Recipe> Recipes
+        {
+            get
+            {
+                if ((_Recipes == null))
+                {
+                    _Recipes = base.CreateObjectSet<Recipe>("Recipes");
+                }
+                return _Recipes;
+            }
+        }
+        private ObjectSet<Recipe> _Recipes;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Direction> Directions
+        {
+            get
+            {
+                if ((_Directions == null))
+                {
+                    _Directions = base.CreateObjectSet<Direction>("Directions");
+                }
+                return _Directions;
+            }
+        }
+        private ObjectSet<Direction> _Directions;
 
         #endregion
 
         #region AddTo Methods
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Recipes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToRecipes(Recipe recipe)
-        {
-            base.AddObject("Recipes", recipe);
-        }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the Ingredients EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
@@ -164,6 +181,22 @@ namespace DataLayer
         {
             base.AddObject("Measurements", measurement);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Recipes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToRecipes(Recipe recipe)
+        {
+            base.AddObject("Recipes", recipe);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Directions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToDirections(Direction direction)
+        {
+            base.AddObject("Directions", direction);
+        }
 
         #endregion
 
@@ -172,6 +205,182 @@ namespace DataLayer
     #endregion
 
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="db505e4eb8d47b40b7a6d7a05a001ba2a9Model", Name="Direction")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Direction : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Direction object.
+        /// </summary>
+        /// <param name="directionsId">Initial value of the DirectionsId property.</param>
+        /// <param name="recipeId">Initial value of the RecipeId property.</param>
+        /// <param name="stepNumber">Initial value of the StepNumber property.</param>
+        /// <param name="text">Initial value of the Text property.</param>
+        public static Direction CreateDirection(global::System.Int32 directionsId, global::System.Int32 recipeId, global::System.Int32 stepNumber, global::System.String text)
+        {
+            Direction direction = new Direction();
+            direction.DirectionsId = directionsId;
+            direction.RecipeId = recipeId;
+            direction.StepNumber = stepNumber;
+            direction.Text = text;
+            return direction;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DirectionsId
+        {
+            get
+            {
+                return _DirectionsId;
+            }
+            set
+            {
+                if (_DirectionsId != value)
+                {
+                    OnDirectionsIdChanging(value);
+                    ReportPropertyChanging("DirectionsId");
+                    _DirectionsId = StructuralObject.SetValidValue(value, "DirectionsId");
+                    ReportPropertyChanged("DirectionsId");
+                    OnDirectionsIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _DirectionsId;
+        partial void OnDirectionsIdChanging(global::System.Int32 value);
+        partial void OnDirectionsIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 RecipeId
+        {
+            get
+            {
+                return _RecipeId;
+            }
+            set
+            {
+                OnRecipeIdChanging(value);
+                ReportPropertyChanging("RecipeId");
+                _RecipeId = StructuralObject.SetValidValue(value, "RecipeId");
+                ReportPropertyChanged("RecipeId");
+                OnRecipeIdChanged();
+            }
+        }
+        private global::System.Int32 _RecipeId;
+        partial void OnRecipeIdChanging(global::System.Int32 value);
+        partial void OnRecipeIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 StepNumber
+        {
+            get
+            {
+                return _StepNumber;
+            }
+            set
+            {
+                OnStepNumberChanging(value);
+                ReportPropertyChanging("StepNumber");
+                _StepNumber = StructuralObject.SetValidValue(value, "StepNumber");
+                ReportPropertyChanged("StepNumber");
+                OnStepNumberChanged();
+            }
+        }
+        private global::System.Int32 _StepNumber;
+        partial void OnStepNumberChanging(global::System.Int32 value);
+        partial void OnStepNumberChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Text
+        {
+            get
+            {
+                return _Text;
+            }
+            set
+            {
+                OnTextChanging(value);
+                ReportPropertyChanging("Text");
+                _Text = StructuralObject.SetValidValue(value, false, "Text");
+                ReportPropertyChanged("Text");
+                OnTextChanged();
+            }
+        }
+        private global::System.String _Text;
+        partial void OnTextChanging(global::System.String value);
+        partial void OnTextChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db505e4eb8d47b40b7a6d7a05a001ba2a9Model", "FK_Directions_Recipe", "Recipe")]
+        public Recipe Recipe
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Recipe>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_Directions_Recipe", "Recipe").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Recipe>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_Directions_Recipe", "Recipe").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Recipe> RecipeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Recipe>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_Directions_Recipe", "Recipe");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Recipe>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_Directions_Recipe", "Recipe", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -253,6 +462,32 @@ namespace DataLayer
 
         #endregion
 
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db505e4eb8d47b40b7a6d7a05a001ba2a9Model", "FK_IngredientList_Ingredient", "IngredientList")]
+        public EntityCollection<IngredientList> IngredientLists
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<IngredientList>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Ingredient", "IngredientList");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<IngredientList>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Ingredient", "IngredientList", value);
+                }
+            }
+        }
+
+        #endregion
+
     }
     
     /// <summary>
@@ -272,13 +507,15 @@ namespace DataLayer
         /// <param name="ingredientId">Initial value of the IngredientId property.</param>
         /// <param name="amount">Initial value of the Amount property.</param>
         /// <param name="measurementId">Initial value of the MeasurementId property.</param>
-        public static IngredientList CreateIngredientList(global::System.Int32 ingredientListId, global::System.Int32 ingredientId, global::System.Int32 amount, global::System.Int32 measurementId)
+        /// <param name="recipeId">Initial value of the RecipeId property.</param>
+        public static IngredientList CreateIngredientList(global::System.Int32 ingredientListId, global::System.Int32 ingredientId, global::System.Int32 amount, global::System.Int32 measurementId, global::System.Int32 recipeId)
         {
             IngredientList ingredientList = new IngredientList();
             ingredientList.IngredientListId = ingredientListId;
             ingredientList.IngredientId = ingredientId;
             ingredientList.Amount = amount;
             ingredientList.MeasurementId = measurementId;
+            ingredientList.RecipeId = recipeId;
             return ingredientList;
         }
 
@@ -384,6 +621,148 @@ namespace DataLayer
         private global::System.Int32 _MeasurementId;
         partial void OnMeasurementIdChanging(global::System.Int32 value);
         partial void OnMeasurementIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 RecipeId
+        {
+            get
+            {
+                return _RecipeId;
+            }
+            set
+            {
+                OnRecipeIdChanging(value);
+                ReportPropertyChanging("RecipeId");
+                _RecipeId = StructuralObject.SetValidValue(value, "RecipeId");
+                ReportPropertyChanged("RecipeId");
+                OnRecipeIdChanged();
+            }
+        }
+        private global::System.Int32 _RecipeId;
+        partial void OnRecipeIdChanging(global::System.Int32 value);
+        partial void OnRecipeIdChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db505e4eb8d47b40b7a6d7a05a001ba2a9Model", "FK_IngredientList_Ingredient", "Ingredient")]
+        public Ingredient Ingredient
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Ingredient>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Ingredient", "Ingredient").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Ingredient>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Ingredient", "Ingredient").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Ingredient> IngredientReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Ingredient>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Ingredient", "Ingredient");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Ingredient>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Ingredient", "Ingredient", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db505e4eb8d47b40b7a6d7a05a001ba2a9Model", "FK_IngredientList_Measurement", "Measurement")]
+        public Measurement Measurement
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Measurement>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Measurement", "Measurement").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Measurement>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Measurement", "Measurement").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Measurement> MeasurementReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Measurement>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Measurement", "Measurement");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Measurement>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Measurement", "Measurement", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db505e4eb8d47b40b7a6d7a05a001ba2a9Model", "FK_IngredientList_Recipe", "Recipe")]
+        public Recipe Recipe
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Recipe>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Recipe", "Recipe").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Recipe>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Recipe", "Recipe").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Recipe> RecipeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Recipe>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Recipe", "Recipe");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Recipe>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Recipe", "Recipe", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -469,6 +848,32 @@ namespace DataLayer
 
         #endregion
 
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db505e4eb8d47b40b7a6d7a05a001ba2a9Model", "FK_IngredientList_Measurement", "IngredientList")]
+        public EntityCollection<IngredientList> IngredientLists
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<IngredientList>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Measurement", "IngredientList");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<IngredientList>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Measurement", "IngredientList", value);
+                }
+            }
+        }
+
+        #endregion
+
     }
     
     /// <summary>
@@ -548,6 +953,54 @@ namespace DataLayer
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db505e4eb8d47b40b7a6d7a05a001ba2a9Model", "FK_IngredientList_Recipe", "IngredientList")]
+        public EntityCollection<IngredientList> IngredientLists
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<IngredientList>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Recipe", "IngredientList");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<IngredientList>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Recipe", "IngredientList", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db505e4eb8d47b40b7a6d7a05a001ba2a9Model", "FK_Directions_Recipe", "Direction")]
+        public EntityCollection<Direction> Directions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Direction>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_Directions_Recipe", "Direction");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Direction>("db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_Directions_Recipe", "Direction", value);
+                }
+            }
+        }
 
         #endregion
 

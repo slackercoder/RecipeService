@@ -10,10 +10,6 @@ namespace RecipeTests
     [TestFixture]
     class NUnitTests
     {
-        [Test]
-        public void simpleTest
-        {
-            
-        }
+
     }
 }
