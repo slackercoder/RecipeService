@@ -309,6 +309,37 @@
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams />
+    <Diagrams >
+      <Diagram Name="DataModel">
+        <EntityTypeShape EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Ingredient" Width="1.5" PointX="0.75" PointY="0.75" Height="1.59568359375" IsExpanded="true" />
+        <EntityTypeShape EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.IngredientList" Width="1.5" PointX="3" PointY="3.5" Height="2.5571907552083326" IsExpanded="true" />
+        <EntityTypeShape EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Measurement" Width="1.5" PointX="0.75" PointY="7.125" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Recipe" Width="1.5" PointX="0.75" PointY="3.875" Height="1.7879850260416648" IsExpanded="true" />
+        <EntityTypeShape EntityType="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.Direction" Width="1.5" PointX="3" PointY="7" Height="1.9802864583333335" IsExpanded="true" />
+        <AssociationConnector Association="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Ingredient" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.547841796875" />
+          <ConnectorPoint PointX="3.75" PointY="1.547841796875" />
+          <ConnectorPoint PointX="3.75" PointY="3.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Measurement" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="7.125" />
+          <ConnectorPoint PointX="2.625" PointY="6.75" />
+          <ConnectorPoint PointX="2.625" PointY="4.7785953776041659" />
+          <ConnectorPoint PointX="3" PointY="4.7785953776041659" />
+        </AssociationConnector>
+        <AssociationConnector Association="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_IngredientList_Recipe" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="4.2642976888020829" />
+          <ConnectorPoint PointX="3" PointY="4.2642976888020829" />
+        </AssociationConnector>
+        <AssociationConnector Association="db505e4eb8d47b40b7a6d7a05a001ba2a9Model.FK_Directions_Recipe" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5.6006763337339711" />
+          <ConnectorPoint PointX="2.5660744349011213" PointY="5.916750768635092" />
+          <ConnectorPoint PointX="2.6839255650988791" PointY="6.03460189883285" />
+          <ConnectorPoint PointX="2.8125" PointY="6.1631763337339711" />
+          <ConnectorPoint PointX="2.8125" PointY="7.9901432291666676" />
+          <ConnectorPoint PointX="3" PointY="7.9901432291666676" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
   </Designer>
 </edmx:Edmx>

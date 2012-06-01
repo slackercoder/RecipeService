@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 11
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeService", "RecipeService\RecipeService.csproj", "{200B5D8C-6152-4570-A7FF-8249F9BC19D5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Layer", "Data Layer", "{1B373214-C723-48FD-AB29-860B2100E345}"
@@ -13,7 +13,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{42F6315B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeTests", "RecipeTests\RecipeTests.csproj", "{85FF8B5D-1C4B-4FDC-884D-91135C138FDD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2010Tests", "2010Tests\2010Tests.csproj", "{4D50B0C2-CB08-4FF1-9F9B-637D9634C38F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6174DB47-271E-4D5E-86E2-77D2E08A8B97}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		RecipeService.vsmdi = RecipeService.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = RecipeService.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -23,21 +35,27 @@ Global
 		{200B5D8C-6152-4570-A7FF-8249F9BC19D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{200B5D8C-6152-4570-A7FF-8249F9BC19D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{200B5D8C-6152-4570-A7FF-8249F9BC19D5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{85FF8B5D-1C4B-4FDC-884D-91135C138FDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{85FF8B5D-1C4B-4FDC-884D-91135C138FDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{85FF8B5D-1C4B-4FDC-884D-91135C138FDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{85FF8B5D-1C4B-4FDC-884D-91135C138FDD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{93019004-61AA-40EC-BE9C-D50FAF8A1604}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{93019004-61AA-40EC-BE9C-D50FAF8A1604}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93019004-61AA-40EC-BE9C-D50FAF8A1604}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93019004-61AA-40EC-BE9C-D50FAF8A1604}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85FF8B5D-1C4B-4FDC-884D-91135C138FDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85FF8B5D-1C4B-4FDC-884D-91135C138FDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85FF8B5D-1C4B-4FDC-884D-91135C138FDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85FF8B5D-1C4B-4FDC-884D-91135C138FDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D50B0C2-CB08-4FF1-9F9B-637D9634C38F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D50B0C2-CB08-4FF1-9F9B-637D9634C38F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D50B0C2-CB08-4FF1-9F9B-637D9634C38F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D50B0C2-CB08-4FF1-9F9B-637D9634C38F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{200B5D8C-6152-4570-A7FF-8249F9BC19D5} = {8B6644D4-582A-4015-85FE-D973035DF6C9}
-		{85FF8B5D-1C4B-4FDC-884D-91135C138FDD} = {42F6315B-919C-4EBD-BCA1-51B23FA7C26F}
 		{93019004-61AA-40EC-BE9C-D50FAF8A1604} = {1B373214-C723-48FD-AB29-860B2100E345}
+		{85FF8B5D-1C4B-4FDC-884D-91135C138FDD} = {42F6315B-919C-4EBD-BCA1-51B23FA7C26F}
+		{4D50B0C2-CB08-4FF1-9F9B-637D9634C38F} = {42F6315B-919C-4EBD-BCA1-51B23FA7C26F}
+		{6174DB47-271E-4D5E-86E2-77D2E08A8B97} = {42F6315B-919C-4EBD-BCA1-51B23FA7C26F}
 	EndGlobalSection
 EndGlobal
